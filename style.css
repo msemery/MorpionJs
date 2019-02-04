@@ -1,0 +1,60 @@
+.container{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+#grille {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 3em 3em 3em;
+    grid-column: 2 / 3;
+}
+
+#case1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background: red;
+}
+
+#case2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    background: blue;
+}
+
+#case3 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    background: pink;
+}
+
+#case4 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background: yellow;
+}
+#case5 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background: palegreen;
+}
+#case6 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    background: burlywood;
+}
+#case7 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    background: green;
+}
+#case8 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    background: violet;
+}
+#case9 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    background: skyblue;
+}
