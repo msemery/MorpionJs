@@ -2,7 +2,6 @@
 var playerOneHasToPlay=true; 
 var x= "X";
 var o="O";
-var hasWon = false;
 var grid = new Array(9);
 
 
@@ -28,10 +27,9 @@ function onButtonClicked(button) {
         grid[button.id] = o;
         playerOneHasToPlay = true;
     } 
-    horizontalLine(charToCheck);
-    verticalLine(charToCheck);
-    diagonalLineRight(charToCheck);
-    diagonalLineLeft(charToCheck);
+    if (horizontalLine(charToCheck)) {
+        alert("toto");
+    }
 }
 
 //fonction pour vérifier le gagnant (horizontal, vertical, diagonal droite, diagonale gauche)
@@ -39,42 +37,24 @@ function onButtonClicked(button) {
 function horizontalLine(charToCheck) {
     for (let i = 0; i <= grid.length-3; i+=3) {
         if (grid[i] === charToCheck && grid[i+1] === charToCheck && grid[i+2] ===charToCheck) {
-            hasWon = true;
-            alert("Le joueur "+charToCheck+" a gagné");
-            break;
-            
-       } /* else  {
-            grid[i]=== o && grid[i+1 === o && grid[i+2===o]]
-        }*/
-    }
-}
-
-function verticalLine(charToCheck) {
-    for (let i = 0; i <= grid.lenght-3; i+=3) {
-       if (grid[i]=== charToCheck && grid[i+3] === charToCheck && grid[i+6]===charToCheck) {
-           hasWon = true;
-           alert("Le joueur "+charToCheck+" a gagné");
-           break;
-       } 
-    }
-}
-
-function diagonalLineRight(charToCheck) {
-    for (let i = 0; i <= grid.lenght-3; i+=3) {
-        if (grid[i+2]=== charToCheck && grid[i+4] === charToCheck && grid[i+6]===charToCheck) {
-            hasWon = true;
-            alert("Le joueur "+charToCheck+" a gagné");
-            break;
+            return true;
+       } else if (grid[i]=== charToCheck && grid[i+3] === charToCheck && grid[i+6]===charToCheck) {
+            return true;
+        } else if (grid[i+2]=== charToCheck && grid[i+4] === charToCheck && grid[i+6]===charToCheck) {
+            return true;
+        } else if (grid[i]=== charToCheck && grid[i+4] === charToCheck && grid[i+8]===charToCheck) {
+            return true;
         } 
-}
-}
-function diagonalLineLeft(charToCheck) {
-    for (let i = 0; i <= grid.lenght-3; i+=3) {
-       if (grid[i]=== charToCheck && grid[i+4] === charToCheck && grid[i+8]===charToCheck) {
-           hasWon = true;
-           alert("Le joueur "+charToCheck+" a gagné");
-           break;
-       } 
     }
 }
 
+//fonction pour réinitialiser la grille
+
+function reset() {
+    grid= new Array(9);
+    var pionsArray = document.getElementsByClassName("pionButton");
+    for (let i = 0; i < pionsArray.length; i++) {
+        pionsArray[i].innerHTML= "click ici";
+        
+    }
+}
